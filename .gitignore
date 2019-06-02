@@ -1,0 +1,10 @@
+.env
+.idea/
+.vscode/
+.wttd
+*.sqlite3
+*pyc
+__pycache__
+venv
+venv.old
+exercises/
