@@ -48,6 +48,13 @@
         <!-- OVERVIEW -->
         <section>
         	<div class="content row padding-bottom-3 desktop-12 container">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert success">
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 <h1>Formulário de Inscrição</h1>
                 <div class="desktop-6">
                     <form action="." novalidate method="post">
