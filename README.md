@@ -16,7 +16,7 @@ git clone git@github.com:lscosta90br/eventex-lc.git wttd
 cd wttd
 python -m venv .wttd
 source .wttd/bin/activate
-pip install requirements.txt
+pip install requirements-dev.txt
 cp contrib/env-sample .env
 python manage.py test
 ```

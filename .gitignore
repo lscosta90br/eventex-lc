@@ -10,3 +10,4 @@ venv.old
 exercises/
 staticfiles/
 .venv/
+.ipynb_checkpoints/
