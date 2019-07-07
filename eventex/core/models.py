@@ -20,7 +20,17 @@ class Speaker(models.Model):
         return r('speaker_detail', slug=self.slug)
 
 
-# class Contact(models.Model):
-#     speaker = models.ForeignKey('Speaker')
-#     kind = models.CharField(max_length=1)
-#     value = models.CharField(max_length=255)
+class Contact(models.Model):
+    EMAIL = 'E'
+    PHONE = 'P'
+    KINDS = (
+        (EMAIL, 'Email'),
+        (PHONE,  'Telefone'),
+    )
+    speaker = models.ForeignKey('Speaker', on_delete=models.CASCADE, verbose_name='palestrante')
+    kind = models.CharField('tipo', max_length=1, choices=KINDS)
+    value = models.CharField('valor', max_length=255)
+
+    class Meta:
+        verbose_name = 'contato'
+        verbose_name_plural = 'contatos'
