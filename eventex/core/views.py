@@ -17,3 +17,5 @@ def talk_list(request):
         'afternoon_talks': Talk.objects.at_afternoon(),
     }
     return render(request, 'core/talk_list.html', context)
+
+# dddd
