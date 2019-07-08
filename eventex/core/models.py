@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
+# from eventex.core.managers import KindQuerySet
 
 # Create your models here.
 class Speaker(models.Model):
@@ -23,6 +24,7 @@ class Speaker(models.Model):
 class Contact(models.Model):
     EMAIL = 'E'
     PHONE = 'P'
+
     KINDS = (
         (EMAIL, 'Email'),
         (PHONE,  'Telefone'),
@@ -44,6 +46,6 @@ class Talk(models.Model):
     class Meta:
         verbose_name = 'palestra'
         verbose_name_plural = 'palestras'
-    
+
     def __str__(self):
         return self.title
