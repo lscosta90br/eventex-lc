@@ -15,9 +15,9 @@ class EmailCreateMixin:
         # Send subscription email
         subject = self.email_subject
         from_ = self.email_from
-        to = self.email_to()
+        to = self.get_email_to()
         template_name = self.get_email_template_name()
-        context = self.get_email_context_data
+        context = self.get_email_context_data()
 
         body = render_to_string(template_name, context)
         return mail.send_mail(subject, body, from_, [from_, to])
@@ -30,7 +30,7 @@ class EmailCreateMixin:
         return '{}/{}_email.txt'.format(meta.app_label, meta.model_name)
 
     def get_email_context_data(self):
-        context = dict(kwargs)
+        context = dict(self.kwargs)
         context.setdefault(self.get_email_context_name(), self.object)
         return context
 
@@ -47,6 +47,6 @@ class EmailCreateMixin:
 
 class EmailCreateView(EmailCreateMixin, CreateView):
     def form_valid(self, form):
-        reponse = super().form_valid(form)
+        response = super().form_valid(form)
         self.send_mail()
         return response
